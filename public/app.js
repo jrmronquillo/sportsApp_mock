@@ -7,11 +7,21 @@ window.onload = main;
 //window.onload = initFunction;
 
 
+function testFunction(myObj) { 
+        	console.log('testFuction called');
+        	console.log(myObj[0].name);
+        	var testSection = document.getElementById('view-test');
+        	testSection.innerHTML = myObj[0].name; 
+        } 
+
 
 //window.onkeydown = Controller;
-function View(controller){ 
+function View(controller){
+	//jsonPTEST();
     this.controller = controller;
     //this.controller.setPig();
+    //this.controller.jsonPTEST();
+
 
     // pull in data
     this.controller.dataProcess();
@@ -85,14 +95,30 @@ const testData = [
 					 'name': 'jrock123123123'},
 				];
 
+function doStuffWithJSON(myObj){
+	console.log("doStuffWithJSON called");
+	console.log(myObj);
+};	 
+
+
+function jsonPTEST(){
+  console.log('jsonPTest called!');
+  var obj, s;
+  s = document.createElement("script");
+  s.src = "http://jsonplaceholder.typicode.com/users/";
+  console.log(s);
+};
+
+
 function Controller(model){
   console.log('Controller Triggered! ');
 
   var self = this;
   this.model = model;
 
-
-  /*fetch('http://localhost:3000/rssTest', {mode: 'no-cors'})
+// start data test --------------
+ /* var testDataArr = [];
+  fetch('http://localhost:3000/rssTest')
       .then(function(response){
         console.log('fetch function triggered!');
         console.log(response);
@@ -103,9 +129,46 @@ function Controller(model){
       })
       .then(function(data){
        			console.log('response was good!');
+       			//console.log(data.title[0]);
        		});
+    console.log(testDataArr);
+
+// end data test ---------
 */
- 
+
+// start data test with vanilla js
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1');
+xhr.responseType = 'json';
+xhr.onload = function(e) {
+	console.log('xhronload called');
+	console.log(this.status);
+
+  if (this.status == 200) {
+  	//var jj = this.response.title;
+  	//console.log(jj);
+  	console.log('----->');
+  	console.log(e.currentTarget.response);
+    //console.log(this.response.title); // JSON response  
+
+  }
+};
+xhr.send();
+  
+
+
+
+//jsonP
+
+
+
+
+
+
+
+// end data test with vanilla js
+
+
 
  this.playersArr = [];
  // data intake
@@ -465,6 +528,7 @@ this.clearUnderlines =function(){
 }
 
 function main(){
+  jsonPTEST();
   var model = new Model();
   var controller = new Controller(model);
   var view = new View(controller);

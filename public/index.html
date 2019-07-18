@@ -5,7 +5,12 @@
 	
 	<title>Test</title>
 	<link rel=stylesheet type=text/css href="styles.css">
-	<script type="text/javascript" src="app.js"></script>
+	<script> 
+        function testFunction1(myObj) { 
+        	console.log('testFuction111 called');
+        	console.log(myObj); 
+        } 
+    </script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!--<script src="jquery-3.4.1.js"></script> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,6 +85,10 @@
    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
   <!-- <script src="/reactApp.js"></script> -->
  
-  
+<script type="text/javascript" src="app.js"></script> 
+
+<script src="https://jsonplaceholder.typicode.com/users?callback=testFunction"></script>
+<!--<script src="http://localhost:3000/rssTest?callback=testFunction"></script>-->
+
 </body>
 </html>
