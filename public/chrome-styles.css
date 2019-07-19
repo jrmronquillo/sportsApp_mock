@@ -7,16 +7,15 @@
 
 body{
 	font-family: ClearViewATT;
+	margin:0;
 }
 
-.underline{
-	color: white;
-	font-size: 2em;
-	/* commented out line below, because it is not rendering
-		properly on the STB
-	-webkit-text-decoration: underline;*/
-	border-bottom: 7px solid #1671e2;
-	width:70%;
+.app-container{
+	width:100vw;
+	height: 100vh;
+	top: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .cell{
@@ -36,20 +35,8 @@ body{
 	/*border-bottom: 7px solid #FFF;*/
 }
 
-#view-test{
-	display:none;
-	position:relative;
-	color:white;
-	top:100px;
-	z-index:9999;
-	width:100%;
-	height: 200px;
-	font-size: 3em;
-	border: 2px solid black !important;
-	text-align:center;
-}
 
-.canvas{
+.canvas-original{
 	position: absolute;
     left: 512px;
     top: 0;
@@ -60,14 +47,14 @@ body{
     overflow: hidden;
 }
 
-.canvas-chrome{
+.canvas{
 	position: absolute;
-    left: 512px;
+    left: 25%;
     top: 0;
-    height: 100%;
-    width: width:100%;
+    height: 100vh;
+    width:100%;
     /*background: url(../assets/images/png/canvas-gradient.png) 0 0 repeat-y rgba(0,0,0,0.3);*/
-   	background-color: red;
+   	background-color: gray;
     overflow: hidden;
 }
 
@@ -78,7 +65,7 @@ body{
 }
 
 .canvas-data-title{
-	padding: 5%;
+	padding: 0 5%;
 	color: white;
 	font-size: 2em;
 }
@@ -95,7 +82,7 @@ body{
 	color: white;
 	font-size: 2em;
 	background-color: black;
-	width: 100%;
+	width: 50%;
 	padding: 5%;
 	margin: 5%;
 	list-style-type: none;
@@ -168,7 +155,7 @@ body{
 }
 
 
-#left-menu{
+#left-menu-original{
 	position: absolute;
     left: 0;
     top: 0;
@@ -179,8 +166,21 @@ body{
     overflow: hidden;
 }
 
+#left-menu{
+	position: relative;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    /*padding: 0 33px 0 95px;*/
+    border-right: 2px solid rgb(62,67,76);
+    overflow: hidden;
+}
 
-.header-wrapper{
+
+
+
+.header-wrapper-original{
 	position: absolute;
     top: 0;
     left: 0;
@@ -190,6 +190,18 @@ body{
     background: rgb(21,24,28);
     border-right: 5px solid gray;
 }
+
+.header-wrapper{
+	position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    /*padding: 80px 30px 28px 95px;*/
+    background: rgb(21,24,28);
+    border-right: 5px solid gray;
+}
+
 
 
 /*
@@ -216,7 +228,8 @@ body{
 }
 */
 
-.left-menu-list-container{
+.left-menu-list-container-original{
+
 	position: absolute;
 	background: rgb(22, 24, 28);
 	top: 420px;
@@ -226,13 +239,31 @@ body{
 	border-right: 5px solid gray;
 }
 
+
+.left-menu-list-container{
+	position: relative;
+	background: rgb(22, 24, 28);
+	top:0;
+	left: 0px;
+	width: 100%;
+	height: 100vh;
+	border-right: 5px solid gray;
+}
+
 .left-menu-list{
 	list-style-type: none;
+	padding-left: 5%;
+}
+
+.left-menu-items-original{
+	color: white;
+	font-size: 2em;
+	padding: 10px;
 }
 
 .left-menu-items{
 	color: white;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: 10px;
 }
 
@@ -252,7 +283,7 @@ body{
 
 
 #leaderboard:focus {
-	color:red;
+	color:white;
 	background: blue;
 }
 
@@ -292,7 +323,7 @@ body{
 	color: white;
 }
 
-.pig-container{
+.pig-container-original{
 	position: absolute;
 	top: 105px;
 	left: 0px;
@@ -300,7 +331,19 @@ body{
 	height: 275px;
 	/*background: gray;*/
 }
-.pig-left-bar{
+
+.pig-container{
+	position: relative;
+	top: 0;
+	left: 0px;
+	width: 100%;
+	height: 30%;
+	/*background: gray;*/
+}
+
+
+
+.pig-left-bar-original{
 	position: absolute;
 	background: rgb(21,24,28);
 	top: 0px;
@@ -308,17 +351,25 @@ body{
 	height: 275px;
 }
 
+.pig-left-bar{
+	position: absolute;
+	background: rgb(21,24,28);
+	top: 0px;
+	width: 5%;
+	height: 100%;
+}
+
 .pig-right-bar{
 	position: absolute;
 	background: rgb(22, 24, 28);
 	top: 0px;
-	left: 475px;
-	width: 35px;
-	height: 275px;
+	left: 95%;
+	width: 5%;
+	height: 100%;
 	border-right: 5px solid gray;
 }
 
-.pig-bottom-bar{
+.pig-bottom-bar-original{
 	position: absolute;
 	background: rgb(22, 24, 28);
 	top: 260px;
@@ -327,6 +378,42 @@ body{
 	height: 55px;
 	border-right: 5px solid gray;
 }
+
+.pig-bottom-bar{
+	position: relative;
+	background: rgb(22, 24, 28);
+	top: 100%;
+	left: 0px;
+	width: 100%;
+	height: 10%;
+	border-right: 5px solid gray;
+}
+
+.underline{
+	color: white;
+	font-size: 2em;
+	/* commented out line below, because it is not rendering
+		properly on the STB
+	-webkit-text-decoration: underline;*/
+	border-bottom: 7px solid #1671e2;
+	/*width: 70%;*/
+	margin: 0 5%;
+}
+
+#view-test{
+	display:none;
+	position:relative;
+	color:white;
+	top:100px;
+	z-index:9999;
+	width:100%;
+	height: 200px;
+	font-size: 3em;
+	border: 2px solid black !important;
+	text-align:center;
+}
+
+
 
 /*
 
@@ -352,3 +439,8 @@ var in_x = 100;
 	var out_height = 200;
 
 */
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #view-test{color:red;}
+}

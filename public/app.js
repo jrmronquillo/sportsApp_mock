@@ -9,18 +9,25 @@ window.onload = main;
 
 function testFunction(myObj) { 
         	console.log('testFuction called');
-        	console.log(myObj[0].name);
+        	console.log(myObj);
+        	console.log(myObj.title[1]);
         	var testSection = document.getElementById('view-test');
-        	testSection.innerHTML = myObj[0].name; 
+        	testSection.innerHTML = myObj.title[1];
         } 
 
 
 //window.onkeydown = Controller;
 function View(controller){
+	console.log('view initatied');
+	
+
+
+
+
 	//jsonPTEST();
     this.controller = controller;
     //this.controller.setPig();
-    //this.controller.jsonPTEST();
+    //this.controller.jsonPTEST()
 
 
     // pull in data
@@ -54,6 +61,8 @@ function View(controller){
 		   //console.log(errorMsg);
 		   return true;
 		 };
+
+	console.log('end of view reached!');
 }
 
 function Model(){
@@ -77,22 +86,22 @@ const emptyDataSet = [];
 const testData = [
 					{
 					'id': 1,
-					'name': 'andrew agassi'},
+					'name': 'Andrew Agassi'},
 					 {
 					 'id': 2,
-					 'name': 'pete sampras'},
+					 'name': 'Peter griffin Sampras'},
 					 {
 					 'id': 3,
-					 'name': 'jrock'},
+					 'name': 'Selena Willya'},
 					 {
 					 'id': 4,
-					 'name': 'jrock111'},
+					 'name': 'Naomi Kyoto'},
 					 {
 					 'id': 5,
-					 'name': 'jrock222'},
+					 'name': 'Nova djokoy'},
 					 {
 					 'id': 6,
-					 'name': 'jrock123123123'},
+					 'name': 'Rog Strix Federali'},
 				];
 
 function doStuffWithJSON(myObj){
@@ -115,6 +124,7 @@ function Controller(model){
 
   var self = this;
   this.model = model;
+ 
 
 // start data test --------------
  /* var testDataArr = [];
@@ -137,7 +147,7 @@ function Controller(model){
 */
 
 // start data test with vanilla js
-var xhr = new XMLHttpRequest();
+/*var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1');
 xhr.responseType = 'json';
 xhr.onload = function(e) {
@@ -154,7 +164,7 @@ xhr.onload = function(e) {
   }
 };
 xhr.send();
-  
+*/  
 
 
 
@@ -275,7 +285,8 @@ this.setScrollPosition = function(){
 	console.log('setScrollPosition function called!');
 	var highlightedItem = document.querySelector('#data-list-container').children[this.getFocusedListPosition()];
 	console.log(highlightedItem);
-	highlightedItem.scrollIntoView(true);
+	highlightedItem.scrollIntoView(false);
+	//window.scrollTo(0,1000);
 	//console.log(container.scrollTop);
 	//console.log(container.scrollLeft);
 };
@@ -525,6 +536,8 @@ this.clearUnderlines =function(){
 
    
   };
+
+  console.log('end of controller reached!');
 }
 
 function main(){
@@ -532,6 +545,7 @@ function main(){
   var model = new Model();
   var controller = new Controller(model);
   var view = new View(controller);
+  console.log('end of main reached');
 }
 
 //-------------------------
